@@ -68,16 +68,17 @@ public class ImageQuiz : MonoBehaviour
     void PlaySound(string name)
     {
         AudioClip clip = Resources.Load<AudioClip>("Audio/" + name);
+
         if (clip != null)
         {
-            audioSource.clip = clip;
-            audioSource.Play();
+            audioSource.PlayOneShot(clip);
         }
         else
         {
             Debug.LogWarning("Missing audio for: " + name);
         }
     }
+
 
     void CheckAnswer(string chosenName)
     {
